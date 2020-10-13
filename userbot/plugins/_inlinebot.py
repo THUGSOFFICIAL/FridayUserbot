@@ -143,7 +143,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         text1 = "Lmao x. You Have Been Blocked :)"
         await event.edit("Request Received")
         await borg.send_message(event.chat_id, text1)
-        await event.client(functions.contacts.BlockRequest(chat.id))
+        await event.client(functions.contacts.BlockRequest(event.chat_id))
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"whattalk")))
     async def rip(event):
@@ -155,7 +155,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"askme")))
     async def rip(event):
         wtfisthis2 = event.chat_id
-        await event.edit("Request Received")
+        await event.edit("Request Received.")
         text3 = "Ok, Wait. You can Ask After Master Approves You"
         await borg.send_message(event.chat_id, text3)
 
