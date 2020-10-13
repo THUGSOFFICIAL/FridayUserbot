@@ -176,7 +176,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             the_message = ""
             the_message += "#BLOCKED_PMs\n\n"
             the_message += f"[User](tg://user?id={chat_id}): {chat_id}\n"
-            the_message += f"Message Count: {PM_WARNS[chat_id]}\n"
+            the_message += f"Message Counts: {PM_WARNS[chat_id]}\n"
             # the_message += f"Media: {message_media}"
             try:
                 await event.client.send_message(
