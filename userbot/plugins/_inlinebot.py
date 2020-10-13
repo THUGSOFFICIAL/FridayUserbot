@@ -155,7 +155,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"askme")))
     async def rip(event):
         wtfisthis2 = event.chat_id
-        await tgbot.delete_messages(event.chat_id, message_ids=event.id)
+        await event.delete()
         text3 = "Ok, Wait. You can Ask After Master Approves You"
         await borg.send_message(event.chat_id, text3)
 
