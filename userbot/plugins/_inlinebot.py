@@ -125,7 +125,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"dontspamnigga")))
     async def rip(event):
-        text1 = "Lmao . You Have Been Blocked :)"
+        text1 = "Lmao x. You Have Been Blocked :)"
         await event.delete()
         await borg.send_message(event.chat_id, text1)
         await event.client(functions.contacts.BlockRequest(chat.id))
