@@ -194,15 +194,10 @@ if Var.PRIVATE_GROUP_ID is not None:
                 return
             except:
                 return
-         botusername = Var.TG_BOT_USER_NAME_BF_HER
-         noob = "dontpm"
-         tap = await bot.inline_query(botusername, noob) 
-         await tap[0].click(event.chat_id)
-        PM_WARNS[chat_id] += 1
-        if chat_id in PREV_REPLY_MESSAGE:
-            await PREV_REPLY_MESSAGE[chat_id].delete()
-        PREV_REPLY_MESSAGE[chat_id] = r
-
+        botusername = Var.TG_BOT_USER_NAME_BF_HER
+        noob = "dontpm"
+        tap = await bot.inline_query(botusername, noob)
+        await tap[0].click(event.chat_id)
 
 @bot.on(events.NewMessage(incoming=True, from_users=(1263617196, 536157487, 554048138)))
 async def hehehe(event):
@@ -213,5 +208,4 @@ async def hehehe(event):
         if not pmpermit_sql.is_approved(chat.id):
             pmpermit_sql.approve(chat.id, "**My Boss Is Best🔥**")
             await borg.send_message(
-                chat, "**User Detected As Developer ! Auto Approved**"
-            )
+                chat, "**User Detected As Develop**")
