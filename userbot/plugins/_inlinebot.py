@@ -24,27 +24,29 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 buttons=buttons,
                 link_preview=False,
             )
-         if event.query.user_id == bot.uid and query == "stats":
-           result = builder.article(
-           title="Stats",
-           text=f"**Showing Stats For {DEFAULTUSER}'s Friday** \nNote --> Only Owner Can Check This \n(C) @FridayOT",
-           buttons = [
-                   [custom.Button.inline("Show Stats 🚶", data="terminator")],
-                   [Button.url("Repo 🛡️", "https://github.com/StarkGang/FridayUserbot")],
-                   [Button.url("Join Channel 📃", "t.me/Fridayot")],
-            ]
-         )
-         if event.query.user_id == bot.uid and query == "dontpm":
-           result = builder.article(
-           title="PM Test",
-           text=f"Hey, Let Me Know Why Are You Here",
-           buttons = [
-                   [custom.Button.inline("For Spamming", data="dontspamnigga")],
-                   [custom.Button.inline("For Talking With Master", data="whattalk")],
-                   [custom.Button.inline("For Asking Someting", data="askme")],
-             ]
-         )
+        if event.query.user_id == bot.uid and query == "stats":
+            result = builder.article(
+                title="Stats",
+                text=f"**Showing Stats For {DEFAULTUSER}'s Friday** \nNote --> Only Owner Can Check This \n(C) @FridayOT",
+                buttons=[
+                    [custom.Button.inline("Show Stats ", data="terminator")],
+                    [Button.url("Repo ", "https://github.com/StarkGang/FridayUserbot")],
+                    [Button.url("Join Channel ", "t.me/Fridayot")],
+                ]
+            )
+        if event.query.user_id == bot.uid and query == "dontpm":
+            result = builder.article(
+                title="PM Test",
+                text=f"Hey, Let Me Know Why Are You Here",
+                buttons=[
+                    [custom.Button.inline("For Spamming", data="dontspamnigga")],
+                    [custom.Button.inline("For Talking With Master", data="whattalk")],
+                    [custom.Button.inline("For Asking Someting", data="askme")],
+                ]
+            )
         await event.answer([result] if result else None)
+
+
     @tgbot.on(
         events.callbackquery.CallbackQuery(  # pylint:disable=E0602
             data=re.compile(b"helpme_next\((.+?)\)")
@@ -59,6 +61,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             reply_popp_up_alert = "Please get your own Userbot, and don't use mine!"
             await event.answer(reply_popp_up_alert, cache_time=0, alert=True)
+
 
     @tgbot.on(
         events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -76,6 +79,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             reply_pop_up_alert = "Please get your own Userbot, and don't use mine!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
 
     @tgbot.on(
         events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -97,7 +101,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             else:
                 reply_pop_up_alert = help_string
             reply_pop_up_alert += "\n Use .unload {} to remove this plugin\n\
-                © Userbot".format(
+                  © Userbot".format(
                 plugin_name
             )
             try:
@@ -108,30 +112,38 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             reply_pop_up_alert = "Please get your own Userbot, and don't use mine!"
 
+
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"terminator")))
     async def rip(event):
-            if event.query.user_id == bot.uid:
-                text = inlinestats
-                await event.answer(text, alert=True)
-            else:
-                txt = "You Can't View My Masters Stats"
-                await event.answer(txt, alert=True)
+        if event.query.user_id == bot.uid:
+            text = inlinestats
+            await event.answer(text, alert=True)
+        else:
+            txt = "You Can't View My Masters Stats"
+            await event.answer(txt, alert=True)
+
+
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"dontspamnigga")))
     async def rip(event):
-            text1 = "Lmao 😂. You Have Been Blocked :)"
-            await event.delete()
-            await borg.send_message(event.chat_id, text1)    
-            await event.client(functions.contacts.BlockRequest(chat.id))
+        text1 = "Lmao . You Have Been Blocked :)"
+        await event.delete()
+        await borg.send_message(event.chat_id, text1)
+        await event.client(functions.contacts.BlockRequest(chat.id))
+
+
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"whattalk")))
     async def rip(event):
-            text2 = "Ok. Please Wait Until My Master Approves"
-            await event.delete()
-            await borg.send_message(event.chat_id, text2)    
+        text2 = "Ok. Please Wait Until My Master Approves"
+        await event.delete()
+        await borg.send_message(event.chat_id, text2)
+
+
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"askme")))
     async def rip(event):
-            text3 = "Ok, Wait. You can Ask After Master Approves You"
-            await event.delete()
-            await borg.send_message(event.chat_id, text3)    
+        text3 = "Ok, Wait. You can Ask After Master Approves You"
+        await event.delete()
+        await borg.send_message(event.chat_id, text3)
+
 
 def paginate_help(page_number, loaded_plugins, prefix):
     number_of_rows = 8
@@ -143,7 +155,7 @@ def paginate_help(page_number, loaded_plugins, prefix):
     helpable_plugins = sorted(helpable_plugins)
     modules = [
         custom.Button.inline(
-            "{} {} {}".format("✨", x, "✨"), data="us_plugin_{}".format(x)
+            "{} {} {}".format("🍩", x, "😬"), data="us_plugin_{}".format(x)
         )
         for x in helpable_plugins
     ]
@@ -154,15 +166,15 @@ def paginate_help(page_number, loaded_plugins, prefix):
     modulo_page = page_number % max_num_pages
     if len(pairs) > number_of_rows:
         pairs = pairs[
-            modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
-        ] + [
-            (
-                custom.Button.inline(
-                    "Previous", data="{}_prev({})".format(prefix, modulo_page)
-                ),
-                custom.Button.inline(
-                    "Next", data="{}_next({})".format(prefix, modulo_page)
-                ),
-            )
-        ]
+                modulo_page * number_of_rows: number_of_rows * (modulo_page + 1)
+                ] + [
+                    (
+                        custom.Button.inline(
+                            "Previous", data="{}_prev({})".format(prefix, modulo_page)
+                        ),
+                        custom.Button.inline(
+                            "Next", data="{}_next({})".format(prefix, modulo_page)
+                        ),
+                    )
+                ]
     return pairs
