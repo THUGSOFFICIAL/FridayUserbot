@@ -141,21 +141,21 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
     async def rip(event):
         wtfisthis = event.chat_id
         text1 = "Lmao x. You Have Been Blocked :)"
-        await tgbot.delete_messages(message_ids=event.id)
+        await tgbot.delete_messages(event.chat_id, message_ids=event.id)
         await borg.send_message(event.chat_id, text1)
         await event.client(functions.contacts.BlockRequest(chat.id))
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"whattalk")))
     async def rip(event):
         wtfisthis1 = event.chat_id
-        await tgbot.delete_messages(message_ids=event.id)
+        await tgbot.delete_messages(event.chat_id, message_ids=event.id)
         text2 = "Ok. Please Wait Until My Master Approves"
         await borg.send_message(event.chat_id, text2)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"askme")))
     async def rip(event):
         wtfisthis2 = event.chat_id
-        await tgbot.delete_messages(message_ids=event.id)
+        await tgbot.delete_messages(event.chat_id, message_ids=event.id)
         text3 = "Ok, Wait. You can Ask After Master Approves You"
         await borg.send_message(event.chat_id, text3)
 
