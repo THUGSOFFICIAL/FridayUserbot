@@ -1,7 +1,6 @@
 import asyncio
 import io
 import os
-
 from telethon import events
 from telethon import functions
 from telethon.tl.functions.users import GetFullUserRequest
