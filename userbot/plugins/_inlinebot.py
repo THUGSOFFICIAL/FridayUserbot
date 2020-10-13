@@ -31,8 +31,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         if event.query.user_id == bot.uid and query == "stats":
             result = builder.article(
                 title="Stats",
-                text=
-                f"**Showing Stats For {DEFAULTUSER}'s Friday** \nNote --> Only Owner Can Check This \n(C) @FridayOT",
+                text=f"**Showing Stats For {DEFAULTUSER}'s Friday** \nNote --> Only Owner Can Check This \n(C) @FridayOT",
                 buttons=[
                     [custom.Button.inline("Show Stats ", data="terminator")],
                     [
@@ -108,7 +107,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 for i in CMD_LIST[plugin_name]:
                     help_string += i
                     help_string += "\n"
-            except:
+            except BaseException:
                 pass
             if help_string is "":
                 reply_pop_up_alert = "{} is useless".format(plugin_name)
@@ -120,7 +119,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 await event.answer(reply_pop_up_alert,
                                    cache_time=0,
                                    alert=True)
-            except:
+            except BaseException:
                 halps = "Do .help {} to get the list of commands.".format(
                     plugin_name)
                 await event.answer(halps, cache_time=0, alert=True)

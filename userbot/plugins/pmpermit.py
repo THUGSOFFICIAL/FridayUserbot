@@ -189,7 +189,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                     silent=True,
                 )
                 return
-            except:
+            except BaseException:
                 return
         botusername = Var.TG_BOT_USER_NAME_BF_HER
         noob = "dontpm"
